@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Quiz interativo de inglês técnico para programação e segurança — Auto-review, conectores e termos DevOps." />
+  <title>Quiz — Inglês Técnico (Programação & Segurança)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Inglês técnico · Programação & Segurança</h1>
+      <p>Interface em português · termos em inglês · áudio no navegador · progresso salvo localmente</p>
+    </header>
+
+    <div class="top-bar">
+      <div class="score-pill" id="score-pill">Placar: <strong>0</strong> acertos</div>
+      <div class="block-pill" id="block-pill">Início</div>
+    </div>
+    <div class="progress-wrap" aria-hidden="true">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- HOME -->
+    <section class="screen active" id="screen-home">
+      <div class="card">
+        <h2 style="margin-top:0">Treine vocabulário de agentes, deploy e segurança</h2>
+        <p class="muted" id="home-stats">Carregando…</p>
+        <div class="nav-actions mt">
+          <button type="button" class="primary" id="btn-start-all">Começar tudo</button>
+          <button type="button" id="btn-review-wrongs">Revisar só os errados</button>
+          <button type="button" class="ghost" id="btn-glossary">Glossário A–Z</button>
+          <button type="button" class="ghost" id="btn-reset">Zerar progresso</button>
+        </div>
+        <h3 class="mt">Blocos</h3>
+        <div class="home-list" id="home-blocks"></div>
+      </div>
+      <footer class="note">Feito para brasileiros aprendendo inglês técnico · Web Speech API · sem login</footer>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="screen" id="screen-quiz">
+      <div class="card">
+        <div class="term-row">
+          <h2 class="term" id="q-term">Term</h2>
+          <button type="button" class="audio" id="btn-audio-term">Áudio (EN)</button>
+        </div>
+        <p class="prompt" id="q-prompt">Pergunta</p>
+        <div class="options" id="q-options"></div>
+        <div class="feedback" id="q-feedback">
+          <div class="label" id="feedback-label"></div>
+          <p id="feedback-text"></p>
+          <p class="translation" id="feedback-translation"></p>
+          <div class="feedback-actions">
+            <button type="button" class="audio" id="btn-audio-explain">Áudio da explicação (PT)</button>
+            <button type="button" class="success" id="btn-next" disabled>Próxima</button>
+            <button type="button" class="ghost" id="btn-home">Início</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section class="screen" id="screen-result">
+      <div class="card">
+        <div class="result-hero">
+          <p class="muted">Sessão concluída</p>
+          <div class="big" id="result-score">0 / 0</div>
+          <p id="result-detail" class="muted"></p>
+        </div>
+        <div class="nav-actions">
+          <button type="button" class="primary" id="btn-result-again">Treinar de novo</button>
+          <button type="button" id="btn-result-wrongs">Só os errados</button>
+          <button type="button" class="ghost" id="btn-home-2">Início</button>
+          <button type="button" class="ghost" id="btn-glossary-2">Glossário</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="screen" id="screen-glossary">
+      <div class="card">
+        <div class="glossary-head mb">
+          <h2 style="margin:0">Glossário (A–Z)</h2>
+          <button type="button" class="ghost" id="btn-home-3">Início</button>
+        </div>
+        <p class="muted mb">Todos os termos do quiz, em ordem alfabética, com áudio.</p>
+        <div class="glossary-list" id="glossary-list"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById("btn-glossary-2").addEventListener("click", function () {
+      document.getElementById("btn-glossary").click();
+    });
+  </script>
+</body>
+</html>
