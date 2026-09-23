@@ -4,7 +4,7 @@ Aplicativo web estático para brasileiros treinarem **inglês técnico** de prog
 
 ## Como usar
 
-Abra `index.html` no navegador ou acesse o deploy na Vercel.
+Abra `index.html` no navegador ou acesse: https://quiz-ingles-tecnico.vercel.app
 
 - Interface em **português**; termos em **inglês**
 - Áudio via **Web Speech API** (`speechSynthesis`) — sem backend
@@ -13,25 +13,27 @@ Abra `index.html` no navegador ou acesse o deploy na Vercel.
 
 ## Blocos
 
-1. **Auto-review** — Auto-approved, User approval card, Standing permission, Blocked
-2. **Conectores** — Deploy, Vercel, GitHub, Notion, Firebase, Gmail, Calendar, Canva, Gamma
-3. **Segurança** — Token, OAuth, Scope, Revocation, permissões, senha no browser do bot
-4. **Termos extras** — Repository, Commit, Branch, Pull request, Webhook, Rate limit, etc.
+1. **Auto-review** (8) — Auto-approved, User approval card, Standing permission, Blocked
+2. **Conectores** (12) — Deploy, Vercel, GitHub, Notion, Firebase, Gmail, Calendar, Canva, Gamma
+3. **Segurança** (10) — Token, OAuth, Scope, Revocation, permissões, senha no browser do bot
+4. **Termos extras** (8) — Repository, Commit, Branch, Pull request, Webhook, Rate limit, etc.
+
+**Total: 38 perguntas**
 
 ## Estrutura
 
 ```
-index.html   — UI
-styles.css   — layout mobile-first
-data.js      — perguntas e glossário
-app.js       — lógica, áudio, localStorage
+index.html      — UI
+styles.css      — layout mobile-first
+data-part1.js   — blocos + perguntas (parte 1)
+data-part2.js   — perguntas (parte 2) + montagem de QUIZ_DATA
+data.js         — fonte completa (desenvolvimento local)
+app.js          — lógica, áudio, localStorage
 ```
 
-Sem framework e sem build.
+Sem framework e sem build. Push em `main` dispara deploy na Vercel.
 
 ## Desenvolvimento local
-
-Qualquer servidor estático, por exemplo:
 
 ```bash
 npx serve .
